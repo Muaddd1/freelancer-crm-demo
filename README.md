@@ -28,29 +28,20 @@ Next.js · Tailwind CSS v4 · Radix UI · React Context · localStorage
 
 ## Screenshots
 
-> Dashboard with key metrics and active project overview
+### Dashboard
+![Dashboard](screenshots/01-dashboard.png)
 
-> Client directory with health indicators and quick actions
+### Clients
+![Clients](screenshots/02-clients.png)
 
-> Client detail with financial summary, tabs, and action buttons
+### Client Detail
+![Client Detail](screenshots/03-client-detail.png)
 
-> Invoice detail with line items and payment recording
+### Invoices
+![Invoices](screenshots/04-invoices.png)
 
----
-
-## Quick Start
-
-The live demo runs at the URL above. No account needed — data is stored locally in your browser.
-
-To run locally:
-
-```bash
-git clone https://github.com/Muaddd1/freelancer-crm-demo.git
-# Note: this is the demo/public repo — source code is available separately
-cd freelancer-crm-demo
-npm install
-npm run dev
-```
+### Settings
+![Settings](screenshots/05-settings.png)
 
 ---
 
