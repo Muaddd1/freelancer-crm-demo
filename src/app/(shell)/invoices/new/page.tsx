@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useData } from '@/lib/data-context'
@@ -9,8 +10,17 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ArrowLeft, Plus, Trash2 } from 'lucide-react'
 import { formatCurrency } from '@/lib/utils'
+import { Skeleton } from '@/components/ui/skeleton'
 
 export default function NewInvoicePage() {
+  return (
+    <Suspense fallback={<div className="p-6 max-w-4xl mx-auto"><Skeleton className="h-96 w-full" /></div>}>
+      <NewInvoicePageInner />
+    </Suspense>
+  )
+}
+
+function NewInvoicePageInner() {
   const searchParams = useSearchParams()
   const { data, addInvoice } = useData()
   const { toast } = useToast()

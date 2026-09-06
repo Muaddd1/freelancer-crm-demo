@@ -2,8 +2,7 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { useData } from '@/lib/utils'
-import { useData as useDataCtx } from '@/lib/data-context'
+import { useData } from '@/lib/data-context'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
@@ -27,7 +26,7 @@ const statusColors: Record<string, string> = {
 }
 
 export default function ProjectsPage() {
-  const { data, isLoaded, deleteProject } = useDataCtx()
+  const { data, isLoaded, deleteProject } = useData()
   const { toast } = useToast()
   const [search, setSearch] = React.useState('')
   const [deleteId, setDeleteId] = React.useState<string | null>(null)

@@ -7,10 +7,11 @@ import { TrendingUp, TrendingDown } from 'lucide-react'
 interface MetricCardProps {
   label: string
   value: string | number
-  trend?: {
+  trend?: string | {
     value: number
     label?: string
   }
+  trendDirection?: 'up' | 'down'
   variant?: 'default' | 'prominent' | 'compact'
   className?: string
 }
@@ -19,10 +20,13 @@ export function MetricCard({
   label,
   value,
   trend,
+  trendDirection,
   variant = 'default',
   className
 }: MetricCardProps) {
-  const isPositive = trend && trend.value >= 0
+  const isString = typeof trend === 'string'
+  const trendObj = !isString ? trend : null
+  const isPositive = trendObj ? trendObj.value >= 0 : (trendDirection === 'up')
 
   if (variant === 'compact') {
     return (
@@ -34,10 +38,10 @@ export function MetricCard({
             {trend && (
               <span className={cn(
                 'flex items-center gap-0.5 text-2xs font-medium',
-                isPositive ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'
+                isPositive ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'
               )}>
                 {isPositive ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
-                {isPositive ? '+' : ''}{trend.value}%
+                {isString ? trend : `${trendObj!.value}%`}
               </span>
             )}
           </div>
@@ -55,11 +59,11 @@ export function MetricCard({
           {trend && (
             <div className={cn(
               'flex items-center gap-1 mb-1 text-sm font-medium',
-              isPositive ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'
+              isPositive ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'
             )}>
               {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
-              <span>{isPositive ? '+' : ''}{trend.value}%</span>
-              {trend.label && <span className="text-muted-foreground text-xs">{trend.label}</span>}
+              <span>{isString ? trend : `${trendObj!.value}%`}</span>
+              {!isString && trendObj!.label && <span className="text-muted-foreground text-xs">{trendObj!.label}</span>}
             </div>
           )}
         </div>
@@ -75,10 +79,10 @@ export function MetricCard({
         {trend && (
           <span className={cn(
             'flex items-center gap-0.5 mb-0.5 text-xs font-medium',
-            isPositive ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'
+            isPositive ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'
           )}>
             {isPositive ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
-            {isPositive ? '+' : ''}{trend.value}%
+            {isString ? trend : `${trendObj!.value}%`}
           </span>
         )}
       </div>

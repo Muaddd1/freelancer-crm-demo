@@ -136,8 +136,10 @@ export function calculateClientHealth(client: ClientWithRelations): ClientHealth
     const lastActivityEntry = client.activities.sort((a, b) =>
       new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     )[0]
-    if (!lastActivity || new Date(lastActivityEntry.createdAt) > lastActivity) {
-      lastActivity = new Date(lastActivityEntry.createdAt)
+    const entryDate = new Date(lastActivityEntry.createdAt)
+    const lastAct: Date | null = lastActivity
+    if (!lastAct || entryDate.getTime() > (lastAct as Date).getTime()) {
+      lastActivity = entryDate
     }
   }
 
@@ -197,7 +199,7 @@ export function calculateOutstanding(invoices: Array<{ total: number; paid: numb
   return invoices.reduce((sum, inv) => sum + (inv.total - inv.paid), 0)
 }
 
-export function calculateProfit(invoices: Array<{ total: number; paid: number }>, expenses: number = 0): number {
+export function calculateProfit(invoices: Array<{ total: number; paid: number; status: string }>, expenses: number = 0): number {
   const revenue = invoices.filter(inv => inv.status === 'PAID' || inv.paid > 0).reduce((sum, inv) => sum + inv.paid, 0)
   return revenue - expenses
 }

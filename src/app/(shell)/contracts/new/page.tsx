@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useData } from '@/lib/data-context'
@@ -8,8 +9,17 @@ import { useToast } from '@/lib/toast-context'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ArrowLeft } from 'lucide-react'
+import { Skeleton } from '@/components/ui/skeleton'
 
 export default function NewContractPage() {
+  return (
+    <Suspense fallback={<div className="p-6 max-w-2xl mx-auto"><Skeleton className="h-96 w-full" /></div>}>
+      <NewContractPageInner />
+    </Suspense>
+  )
+}
+
+function NewContractPageInner() {
   const searchParams = useSearchParams()
   const { data, addContract } = useData()
   const { toast } = useToast()

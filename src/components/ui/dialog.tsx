@@ -64,11 +64,12 @@ interface ConfirmDialogProps {
   onClose: () => void
   onConfirm: () => void
   title: string
-  description: string
+  description?: string
   confirmLabel?: string
   cancelLabel?: string
   variant?: 'default' | 'destructive'
   loading?: boolean
+  children?: React.ReactNode
 }
 
 export function ConfirmDialog({
@@ -81,9 +82,11 @@ export function ConfirmDialog({
   cancelLabel = 'Cancel',
   variant = 'default',
   loading = false,
+  children,
 }: ConfirmDialogProps) {
   return (
     <Dialog open={open} onClose={onClose} title={title} description={description}>
+      {children}
       <div className="flex justify-end gap-3 mt-4">
         <Button variant="outline" onClick={onClose} disabled={loading}>
           {cancelLabel}
