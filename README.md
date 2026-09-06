@@ -2,7 +2,7 @@
 
 > Premium client relationship management for freelancers and creative professionals.
 
-**Live Demo:** [https://freelancer-rs0zan2vm-muad1.vercel.app](https://freelancer-rs0zan2vm-muad1.vercel.app)
+**Live Demo:** [https://freelancer-crm-ivory.vercel.app](https://freelancer-crm-ivory.vercel.app)
 
 ---
 
