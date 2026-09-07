@@ -90,7 +90,7 @@ export default function DashboardPage() {
               <div>
                 <p className="text-2xs text-muted-foreground uppercase tracking-wide font-medium">Total Revenue</p>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-bold tracking-tight">{formatCompactCurrency(stats.totalRevenue)}</span>
+                  <span className="text-2xl font-bold tracking-tight text-foreground">{formatCompactCurrency(stats.totalRevenue)}</span>
                 </div>
               </div>
             </div>
