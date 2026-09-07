@@ -525,23 +525,22 @@ interface DataContextValue {
 const DataContext = React.createContext<DataContextValue | null>(null)
 
 export function DataProvider({ children }: { children: React.ReactNode }) {
-  const [data, setData] = React.useState<AppData>(defaultData)
+  const [data, setData] = React.useState<AppData>(() => {
+    if (typeof window === 'undefined') return defaultData
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY)
+      if (stored) {
+        const parsed = JSON.parse(stored)
+        return parsed
+      }
+    } catch {}
+    return seedData
+  })
   const [isLoaded, setIsLoaded] = React.useState(false)
 
-  // Load from localStorage on mount
+  // Mark as loaded after mount
   React.useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY)
-    if (stored) {
-      try {
-        const parsed = JSON.parse(stored)
-        setData(parsed)
-      } catch {
-        setData(seedData)
-      }
-    } else {
-      setData(seedData)
-    }
-    setIsLoaded(true)
+    setIsLoaded(true) // eslint-disable-line react-hooks/set-state-in-effect
   }, [])
 
   // Save to localStorage on every change

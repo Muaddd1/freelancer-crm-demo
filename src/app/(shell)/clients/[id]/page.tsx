@@ -10,12 +10,11 @@ import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Dialog, ConfirmDialog } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
 import { ClientHealthIndicator } from '@/components/ui/client-health-badge'
 import { formatCompactCurrency, formatCurrency, getInitials, calculateClientHealth } from '@/lib/utils'
 import {
   ArrowLeft, Mail, Phone, Globe, Edit, Trash2, Plus,
-  Briefcase, FileText, Receipt, MessageSquare, Activity,
+  Briefcase, FileText, Receipt, MessageSquare,
   ArrowRight, ExternalLink, Send, DollarSign, Clock, CheckCircle,
   FileSignature, MoreHorizontal, TrendingUp
 } from 'lucide-react'

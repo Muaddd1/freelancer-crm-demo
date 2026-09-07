@@ -7,13 +7,12 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Skeleton } from '@/components/ui/skeleton'
-import { formatCurrency, formatCompactCurrency, getInitials } from '@/lib/utils'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { formatCurrency, formatCompactCurrency } from '@/lib/utils'
 import { ConfirmDialog } from '@/components/ui/dialog'
 import { useToast } from '@/lib/toast-context'
 import {
-  Plus, Search, FileText, ArrowRight, MoreHorizontal,
-  Edit, Trash2, Eye, Send, Clock
+  Plus, Search, FileText, MoreHorizontal,
+  Edit, Trash2, Send, Clock, Eye
 } from 'lucide-react'
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem,

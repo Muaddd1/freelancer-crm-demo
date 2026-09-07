@@ -11,14 +11,10 @@ import { Input } from '@/components/ui/input'
 import { formatCurrency, getInitials } from '@/lib/utils'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import {
-  ArrowLeft, Send, Download, Edit, DollarSign, CheckCircle,
-  ExternalLink, Printer, MoreHorizontal
+  ArrowLeft, Send, Download, DollarSign, CheckCircle,
+  ExternalLink, Printer
 } from 'lucide-react'
 import { ConfirmDialog } from '@/components/ui/dialog'
-import {
-  DropdownMenu, DropdownMenuContent, DropdownMenuItem,
-  DropdownMenuSeparator, DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
 
 const statusColors: Record<string, string> = {
   PAID: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
@@ -261,7 +257,7 @@ export default function InvoiceDetailPage() {
             <select
               className="w-full h-10 rounded-lg border bg-background px-3 text-sm"
               value={paymentMethod}
-              onChange={e => setPaymentMethod(e.target.value as any)}
+              onChange={e => setPaymentMethod(e.target.value as 'BANK_TRANSFER' | 'CARD' | 'PAYPAL' | 'CASH')}
             >
               <option value="BANK_TRANSFER">Bank Transfer</option>
               <option value="CARD">Card</option>

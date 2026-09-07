@@ -11,13 +11,13 @@ import { ViewSwitcher, useClientView } from '@/components/ui/view-switcher'
 import { SmartFilters, ActiveFilters, type FilterState } from '@/components/ui/smart-filters'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Dialog, ConfirmDialog } from '@/components/ui/dialog'
+import { ConfirmDialog } from '@/components/ui/dialog'
 import { ClientHealthIndicator } from '@/components/ui/client-health-badge'
 import { formatCompactCurrency, getInitials, calculateClientHealth } from '@/lib/utils'
 import { useToast } from '@/lib/toast-context'
 import {
   Plus, Search, Users, ArrowUpRight, Download, Upload, Briefcase,
-  FileText, ArrowRight, MoreHorizontal, Trash2, Edit, Eye
+  MoreHorizontal, Trash2, Edit, Eye
 } from 'lucide-react'
 import {
   DropdownMenu,
@@ -30,7 +30,7 @@ import {
 export default function ClientsPage() {
   const { data, isLoaded, deleteClient, getClientRevenue, getInvoicesByClient, getProjectsByClient } = useData()
   const { toast } = useToast()
-  const { view } = useClientView()
+  const { view, changeView } = useClientView()
   const [search, setSearch] = React.useState('')
   const [filters, setFilters] = React.useState<FilterState>({
     status: [],
@@ -194,7 +194,7 @@ export default function ClientsPage() {
             />
           </div>
           <SmartFilters filters={filters} onChange={setFilters} />
-          <ViewSwitcher value={view} onChange={() => {}} />
+          <ViewSwitcher value={view} onChange={changeView} />
           <Button variant="outline" size="sm" className="gap-1.5">
             <Download className="w-4 h-4" />
             Export
@@ -205,10 +205,11 @@ export default function ClientsPage() {
           filters={filters}
           onRemove={(key, value) => {
             if (value) {
-              setFilters(prev => ({
-                ...prev,
-                [key]: (prev as any)[key].filter((v: string) => v !== value),
-              }))
+              if (key === 'status') {
+                setFilters(prev => ({ ...prev, status: prev.status.filter((v: string) => v !== value) }))
+              } else if (key === 'health') {
+                setFilters(prev => ({ ...prev, health: prev.health.filter((v: string) => v !== value) }))
+              }
             } else {
               setFilters(prev => ({
                 ...prev,

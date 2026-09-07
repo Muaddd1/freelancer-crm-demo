@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { formatRelativeTime } from '@/lib/utils'
 import {
   DollarSign, FileText, MessageSquare, Clock,
-  Upload, Send, CreditCard, Briefcase, Calendar, Edit, CheckCircle
+  Upload, Briefcase, Calendar, Edit, CheckCircle
 } from 'lucide-react'
 
 export interface TimelineItem {

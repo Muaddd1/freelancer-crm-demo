@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Skeleton } from '@/components/ui/skeleton'
 import { formatCompactCurrency, getInitials } from '@/lib/utils'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Plus, Search, Briefcase, ArrowRight, MoreHorizontal, Edit, Trash2, Eye, Clock } from 'lucide-react'
+import { Plus, Search, Briefcase, MoreHorizontal, Edit, Trash2, Eye, Clock } from 'lucide-react'
 import { ConfirmDialog } from '@/components/ui/dialog'
 import { useToast } from '@/lib/toast-context'
 import {

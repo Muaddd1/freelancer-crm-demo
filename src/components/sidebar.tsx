@@ -6,19 +6,13 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import {
   LayoutDashboard, Users, Briefcase, FileText, Receipt, FileSignature,
-  Settings, ChevronLeft, ChevronRight, Zap, Search, Bell, Sun, Moon
+  Settings, ChevronLeft, ChevronRight, Zap, Search, Sun, Moon
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+
+const STORAGE_KEY = 'freelancer-crm-theme'
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -36,16 +30,20 @@ const bottomNavItems = [
 export function Sidebar() {
   const pathname = usePathname()
   const [collapsed, setCollapsed] = React.useState(false)
-  const [darkMode, setDarkMode] = React.useState(false)
-
-  React.useEffect(() => {
-    const isDark = document.documentElement.classList.contains('dark')
-    setDarkMode(isDark)
-  }, [])
+  const [darkMode, setDarkMode] = React.useState(() => {
+    if (typeof document === 'undefined') return false
+    return document.documentElement.classList.contains('dark')
+  })
 
   const toggleDarkMode = () => {
-    document.documentElement.classList.toggle('dark')
-    setDarkMode(!darkMode)
+    setDarkMode(prev => {
+      const newDarkMode = !prev
+      document.documentElement.classList.toggle('dark', newDarkMode)
+      try {
+        localStorage.setItem(STORAGE_KEY, newDarkMode ? 'dark' : 'light')
+      } catch {}
+      return newDarkMode
+    })
   }
 
   return (

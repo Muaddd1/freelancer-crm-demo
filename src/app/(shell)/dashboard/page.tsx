@@ -3,29 +3,20 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { useData } from '@/lib/data-context'
-import { useToast } from '@/lib/toast-context'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { MetricCard } from '@/components/ui/metric-card'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Skeleton } from '@/components/ui/skeleton'
-import { formatCompactCurrency, getInitials, formatRelativeTime } from '@/lib/utils'
+import { formatCompactCurrency, getInitials } from '@/lib/utils'
 import {
   ArrowUpRight, TrendingUp, Users, Briefcase, Receipt,
   FileText, AlertCircle, ArrowRight, Plus, DollarSign,
-  Clock, CheckCircle, Eye
+  Eye
 } from 'lucide-react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 
 export default function DashboardPage() {
   const { data, isLoaded, getDashboardStats } = useData()
-  const { toast } = useToast()
   const stats = getDashboardStats()
 
   if (!isLoaded) {
@@ -63,15 +54,6 @@ export default function DashboardPage() {
 
   // Overdue invoices
   const overdueInvoices = data.invoices.filter(i => i.status === 'OVERDUE')
-
-  // Quick actions
-  const handleQuickAction = (action: string) => {
-    toast({
-      type: 'info',
-      title: 'Coming soon',
-      description: `${action} will be available soon.`,
-    })
-  }
 
   return (
     <div className="p-6 space-y-6 max-w-[1400px] mx-auto">
@@ -298,13 +280,6 @@ export default function DashboardPage() {
             <div className="space-y-2">
               {recentInvoices.map(invoice => {
                 const client = data.clients.find(c => c.id === invoice.clientId)
-                const statusColors = {
-                  PAID: 'text-emerald-600 dark:text-emerald-400',
-                  SENT: 'text-blue-600 dark:text-blue-400',
-                  OVERDUE: 'text-red-600 dark:text-red-400',
-                  DRAFT: 'text-muted-foreground',
-                  VOID: 'text-muted-foreground',
-                }
                 return (
                   <Link
                     key={invoice.id}

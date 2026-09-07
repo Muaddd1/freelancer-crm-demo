@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { Suspense } from 'react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { useData } from '@/lib/data-context'
 import { useToast } from '@/lib/toast-context'
 import { Button } from '@/components/ui/button'
@@ -20,6 +20,7 @@ export default function NewProjectPage() {
 }
 
 function NewProjectPageInner() {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const { data, addProject } = useData()
   const { toast } = useToast()
@@ -30,7 +31,7 @@ function NewProjectPageInner() {
     clientId: searchParams.get('client') || '',
     budget: '',
     deadline: '',
-    status: 'PLANNING' as const,
+    status: 'PLANNING' as 'PLANNING' | 'ACTIVE' | 'ON_HOLD',
   })
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -50,7 +51,7 @@ function NewProjectPageInner() {
     })
     toast({ type: 'success', title: 'Project created', description: `"${form.name}" has been created.` })
     setLoading(false)
-    window.location.href = '/projects'
+    router.push('/projects')
   }
 
   return (
@@ -124,7 +125,7 @@ function NewProjectPageInner() {
             <select
               className="w-full h-10 rounded-lg border bg-background px-3 text-sm"
               value={form.status}
-              onChange={e => setForm({ ...form, status: e.target.value as any })}
+              onChange={e => setForm({ ...form, status: e.target.value as 'PLANNING' | 'ACTIVE' | 'ON_HOLD' })}
             >
               <option value="PLANNING">Planning</option>
               <option value="ACTIVE">Active</option>

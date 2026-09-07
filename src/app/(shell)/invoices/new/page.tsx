@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { Suspense } from 'react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { useData } from '@/lib/data-context'
 import { useToast } from '@/lib/toast-context'
 import { Button } from '@/components/ui/button'
@@ -21,10 +21,19 @@ export default function NewInvoicePage() {
 }
 
 function NewInvoicePageInner() {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const { data, addInvoice } = useData()
   const { toast } = useToast()
   const [loading, setLoading] = React.useState(false)
+
+  // Compute default due date once
+  const defaultDueDate = React.useMemo(() => {
+    const d = new Date()
+    d.setDate(d.getDate() + 30)
+    return d.toISOString().split('T')[0]
+  }, [])
+
   const [form, setForm] = React.useState({
     clientId: searchParams.get('client') || '',
     projectId: '',
@@ -73,7 +82,7 @@ function NewInvoicePageInner() {
       projectId: form.projectId || null,
       status: 'DRAFT',
       issueDate: new Date().toISOString().split('T')[0],
-      dueDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+      dueDate: defaultDueDate,
       subtotal,
       tax: 0,
       total: subtotal,
@@ -83,7 +92,7 @@ function NewInvoicePageInner() {
     })
     toast({ type: 'success', title: 'Invoice created' })
     setLoading(false)
-    window.location.href = '/invoices'
+    router.push('/invoices')
   }
 
   return (

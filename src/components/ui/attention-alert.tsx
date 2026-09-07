@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { getInitials } from '@/lib/utils'
-import { ArrowRight, MessageSquare, FileText, Clock, AlertCircle } from 'lucide-react'
+import { ArrowRight, FileText, Clock, AlertCircle } from 'lucide-react'
 
 export type AlertType = 'overdue' | 'attention' | 'action'
 

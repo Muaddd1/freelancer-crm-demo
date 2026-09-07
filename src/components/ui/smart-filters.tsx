@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuLabel,
 } from '@/components/ui/dropdown-menu'
-import { SlidersHorizontal, X, Save, Bookmark } from 'lucide-react'
+import { SlidersHorizontal, X } from 'lucide-react'
 
 export interface FilterState {
   status: string[]
@@ -41,11 +41,8 @@ const defaultFilters: FilterState = {
 
 export function SmartFilters({
   filters,
-  onChange,
-  className
+  onChange
 }: SmartFiltersProps) {
-  const [showSaveDialog, setShowSaveDialog] = React.useState(false)
-  const [filterName, setFilterName] = React.useState('')
 
   const activeFilterCount = [
     filters.status.length > 0,

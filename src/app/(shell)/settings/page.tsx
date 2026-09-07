@@ -5,10 +5,9 @@ import { useData } from '@/lib/data-context'
 import { useToast } from '@/lib/toast-context'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Badge } from '@/components/ui/badge'
 import {
-  User, Mail, Bell, CreditCard, Palette, Globe, Shield,
-  Download, Upload, Trash2, Check
+  User, Bell, Globe,
+  Download, Trash2, Check
 } from 'lucide-react'
 
 export default function SettingsPage() {

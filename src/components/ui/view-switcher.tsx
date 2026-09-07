@@ -49,14 +49,14 @@ export function ViewSwitcher({ value, onChange, className }: ViewSwitcherProps) 
 const STORAGE_KEY = 'crm-clients-view'
 
 export function useClientView() {
-  const [view, setView] = React.useState<ViewType>('table')
-
-  React.useEffect(() => {
+  const [view, setView] = React.useState<ViewType>(() => {
+    if (typeof window === 'undefined') return 'table'
     const stored = localStorage.getItem(STORAGE_KEY)
     if (stored && ['table', 'cards', 'kanban', 'compact'].includes(stored)) {
-      setView(stored as ViewType)
+      return stored as ViewType
     }
-  }, [])
+    return 'table'
+  })
 
   const changeView = (newView: ViewType) => {
     setView(newView)

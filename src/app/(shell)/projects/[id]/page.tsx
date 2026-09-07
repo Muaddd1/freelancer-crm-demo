@@ -4,11 +4,9 @@ import * as React from 'react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useData } from '@/lib/data-context'
-import { useToast } from '@/lib/toast-context'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { formatCompactCurrency, getInitials } from '@/lib/utils'
+import { formatCompactCurrency } from '@/lib/utils'
 import { ArrowLeft, Briefcase, Clock, DollarSign, Edit, ExternalLink } from 'lucide-react'
 
 const statusColors: Record<string, string> = {
@@ -21,13 +19,13 @@ const statusColors: Record<string, string> = {
 
 export default function ProjectDetailPage() {
   const params = useParams()
-  const { data, isLoaded, getProjectsByClient, getInvoicesByClient } = useData()
-  const { toast } = useToast()
+  const { data, isLoaded, getInvoicesByClient } = useData()
 
   const projectId = params.id as string
   const project = data.projects.find(p => p.id === projectId)
   const client = project ? data.clients.find(c => c.id === project.clientId) : null
-  const invoices = project ? getInvoicesByClient(project.clientId).filter(i => i.projectId === projectId) : []
+  const projectInvoices = project ? getInvoicesByClient(project.clientId).filter(i => i.projectId === projectId) : []
+  const totalInvoiced = projectInvoices.reduce((s, i) => s + i.total, 0)
 
   if (!isLoaded) return <div className="p-6">Loading...</div>
   if (!project) {
@@ -43,11 +41,6 @@ export default function ProjectDetailPage() {
       </div>
     )
   }
-
-  const clientInvoices = getInvoicesByClient(project.clientId)
-  const projectInvoices = clientInvoices.filter(i => i.projectId === projectId)
-  const totalInvoiced = projectInvoices.reduce((s, i) => s + i.total, 0)
-  const totalPaid = projectInvoices.reduce((s, i) => s + i.paid, 0)
 
   return (
     <div className="min-h-screen bg-background">

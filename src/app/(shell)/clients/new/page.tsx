@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useData } from '@/lib/data-context'
 import { useToast } from '@/lib/toast-context'
 import { Button } from '@/components/ui/button'
@@ -9,6 +10,7 @@ import { Input } from '@/components/ui/input'
 import { ArrowLeft } from 'lucide-react'
 
 export default function NewClientPage() {
+  const router = useRouter()
   const { addClient } = useData()
   const { toast } = useToast()
   const [loading, setLoading] = React.useState(false)
@@ -19,7 +21,7 @@ export default function NewClientPage() {
     phone: '',
     website: '',
     notes: '',
-    status: 'ACTIVE' as const,
+    status: 'ACTIVE' as 'ACTIVE' | 'INACTIVE' | 'LEAD',
   })
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -40,7 +42,7 @@ export default function NewClientPage() {
     })
     toast({ type: 'success', title: 'Client created', description: `${form.name} has been added.` })
     setLoading(false)
-    window.location.href = `/clients/${newClient.id}`
+    router.push(`/clients/${newClient.id}`)
   }
 
   return (
@@ -109,7 +111,7 @@ export default function NewClientPage() {
           <select
             className="w-full h-10 rounded-lg border bg-background px-3 text-sm"
             value={form.status}
-            onChange={e => setForm({ ...form, status: e.target.value as any })}
+            onChange={e => setForm({ ...form, status: e.target.value as 'ACTIVE' | 'INACTIVE' | 'LEAD' })}
           >
             <option value="ACTIVE">Active</option>
             <option value="INACTIVE">Inactive</option>

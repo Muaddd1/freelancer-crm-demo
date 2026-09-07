@@ -12,8 +12,8 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { ConfirmDialog } from '@/components/ui/dialog'
 import { useToast } from '@/lib/toast-context'
 import {
-  Plus, Search, Receipt, ArrowRight, MoreHorizontal,
-  Edit, Trash2, Eye, Send, Download, DollarSign
+  Plus, Search, Receipt, MoreHorizontal,
+  Edit, Trash2, Eye, Send
 } from 'lucide-react'
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem,

@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { Suspense } from 'react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { useData } from '@/lib/data-context'
 import { useToast } from '@/lib/toast-context'
 import { Button } from '@/components/ui/button'
@@ -21,6 +21,7 @@ export default function NewProposalPage() {
 }
 
 function NewProposalPageInner() {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const { data, addProposal } = useData()
   const { toast } = useToast()
@@ -81,7 +82,7 @@ function NewProposalPageInner() {
     })
     toast({ type: 'success', title: 'Proposal created' })
     setLoading(false)
-    window.location.href = '/proposals'
+    router.push('/proposals')
   }
 
   return (

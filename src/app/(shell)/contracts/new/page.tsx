@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { Suspense } from 'react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { useData } from '@/lib/data-context'
 import { useToast } from '@/lib/toast-context'
 import { Button } from '@/components/ui/button'
@@ -20,6 +20,7 @@ export default function NewContractPage() {
 }
 
 function NewContractPageInner() {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const { data, addContract } = useData()
   const { toast } = useToast()
@@ -51,7 +52,7 @@ function NewContractPageInner() {
     })
     toast({ type: 'success', title: 'Contract created' })
     setLoading(false)
-    window.location.href = '/contracts'
+    router.push('/contracts')
   }
 
   return (

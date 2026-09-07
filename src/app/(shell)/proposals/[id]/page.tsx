@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { formatCurrency, getInitials } from '@/lib/utils'
-import { ArrowLeft, Send, Download, ExternalLink, Eye } from 'lucide-react'
+import { ArrowLeft, Send, Download, ExternalLink } from 'lucide-react'
 import { useToast } from '@/lib/toast-context'
 
 const statusColors: Record<string, string> = {

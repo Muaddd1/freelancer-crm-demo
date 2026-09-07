@@ -7,12 +7,11 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Skeleton } from '@/components/ui/skeleton'
-import { formatCurrency, formatCompactCurrency, getInitials } from '@/lib/utils'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { formatCurrency, formatCompactCurrency } from '@/lib/utils'
 import { ConfirmDialog } from '@/components/ui/dialog'
 import { useToast } from '@/lib/toast-context'
 import {
-  Plus, Search, FileSignature, ArrowRight, MoreHorizontal,
+  Plus, Search, FileSignature, MoreHorizontal,
   Edit, Trash2, Eye
 } from 'lucide-react'
 import {

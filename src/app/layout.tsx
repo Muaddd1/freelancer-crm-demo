@@ -4,6 +4,7 @@ import "./globals.css"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { DataProvider } from "@/lib/data-context"
 import { ToastProvider } from "@/lib/toast-context"
+import { ThemeScript } from "@/components/theme-script"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,6 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <TooltipProvider delayDuration={300}>
           <DataProvider>
