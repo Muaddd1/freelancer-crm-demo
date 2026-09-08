@@ -59,7 +59,7 @@ export function Sidebar() {
           <Zap className="w-4 h-4 text-primary-foreground" />
         </div>
         {!collapsed && (
-          <span className="font-bold text-lg tracking-tight">FreelanceOS</span>
+          <span className="font-bold text-lg tracking-tight">Freelancer CRM</span>
         )}
       </div>
 

@@ -12,7 +12,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "FreelanceOS CRM",
+  title: "Freelancer CRM",
   description: "Premium Client Relationship Management for Freelancers",
 }
 
