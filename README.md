@@ -1,6 +1,5 @@
 # Freelancer CRM
 
-<<<<<<< HEAD
 > Premium client relationship management for freelancers and creative professionals.
 
 **Live Demo:** [https://freelancer-crm-ivory.vercel.app](https://freelancer-crm-ivory.vercel.app)
@@ -23,7 +22,12 @@ A fully functional CRM built for freelancers — manage clients, projects, invoi
 
 ### Tech Stack
 
-Next.js · Tailwind CSS v4 · Radix UI · React Context · localStorage
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** Tailwind CSS v4
+- **UI Primitives:** Radix UI (dropdowns, tabs, tooltips, avatars)
+- **Icons:** Lucide React
+- **State:** React Context + localStorage persistence
+- **Fonts:** Geist (via next/font)
 
 ---
 
@@ -49,32 +53,6 @@ Next.js · Tailwind CSS v4 · Radix UI · React Context · localStorage
 ## Status
 
 Production-ready. Every button, link, form, and interaction is fully wired.
-
----
-
-*Built with Next.js, Tailwind CSS, and Radix UI.*
-=======
-A premium client relationship management system built for freelancers and creative professionals. Track clients, projects, invoices, proposals, contracts, and payments — all in one place.
-
-## Features
-
-- **Dashboard** — Key metrics, active projects, pending proposals, and recent invoices at a glance
-- **Clients** — Full client directory with health scoring, search, filters, and multi-view (table/cards)
-- **Projects** — Track project status, budget, deadlines, and link to clients
-- **Invoices** — Create, send, and track invoices with line items and payment history
-- **Proposals** — Create and manage client proposals with dynamic line items
-- **Contracts** — Manage contracts with status tracking (Draft → Sent → Signed)
-- **Payments** — Record and track payments against invoices
-- **Settings** — Profile, business details, notification preferences, and data export
-
-## Tech Stack
-
-- **Framework:** Next.js 16 (App Router)
-- **Styling:** Tailwind CSS v4
-- **UI Primitives:** Radix UI (dropdowns, tabs, tooltips, avatars)
-- **Icons:** Lucide React
-- **State:** React Context + localStorage persistence
-- **Fonts:** Geist (via next/font)
 
 ## Getting Started
 
@@ -113,16 +91,6 @@ src/
 
 All data is stored in `localStorage` under the key `freelancer-crm-data`. Seed data is generated on first load. Export your data anytime from **Settings → Data Management → Export**.
 
-## Keyboard Shortcuts
-
-| Key | Action |
-|-----|--------|
-| `New Client` button | Opens new client form |
-| Client rows | Click to view detail |
-| Back arrows | Navigate to parent list |
-| Toast auto-dismiss | 4 seconds |
-
 ## License
 
 MIT
->>>>>>> 03c8b37 (Initial commit — full CRM build)
