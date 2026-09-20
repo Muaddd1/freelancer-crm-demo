@@ -63,6 +63,8 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+Other scripts: `npm run build` (production build), `npm start` (serve it), `npm run lint`.
+
 ## Project Structure
 
 ```
