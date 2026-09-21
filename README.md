@@ -22,7 +22,8 @@ A fully functional CRM built for freelancers — manage clients, projects, invoi
 
 ### Tech Stack
 
-- **Framework:** Next.js 16 (App Router)
+- **Framework:** Next.js 16 (App Router) + React 19
+- **Language:** TypeScript 5
 - **Styling:** Tailwind CSS v4
 - **UI Primitives:** Radix UI (dropdowns, tabs, tooltips, avatars)
 - **Icons:** Lucide React
