@@ -1,6 +1,10 @@
 {
   "name": "freelancer-crm",
   "version": "0.1.0",
+
+  "description": "CRM for freelancers to manage clients and invoices",
+
+  "homepage": "https://freelancer-crm-ivory.vercel.app",
   "private": true,
   "scripts": {
     "dev": "next dev",
