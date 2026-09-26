@@ -57,6 +57,8 @@ Production-ready. Every button, link, form, and interaction is fully wired.
 
 ## Getting Started
 
+Requires **Node.js 20.9 or newer** (Next.js 16's minimum).
+
 ```bash
 npm install
 npm run dev
