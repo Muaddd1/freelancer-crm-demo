@@ -2,19 +2,21 @@
   "name": "freelancer-crm",
   "version": "0.1.0",
   "license": "MIT",
-
   "repository": {
-
-  
-  "type": "git",
-
-  
-  "url": "git+https://github.com/Muaddd1/freelancer-crm-demo.git"
-
+    "type": "git",
+    "url": "git+https://github.com/Muaddd1/freelancer-crm-demo.git"
   },
-
   "description": "CRM for freelancers to manage clients and invoices",
-
+  "keywords": [
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "crm",
+    "freelancer",
+    "invoices",
+    "dashboard"
+  ],
   "homepage": "https://freelancer-crm-ivory.vercel.app",
   "private": true,
   "engines": {
