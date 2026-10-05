@@ -99,3 +99,7 @@ All data is stored in `localStorage` under the key `freelancer-crm-data`. Seed d
 ## License
 
 MIT
+
+## Author
+
+Built by [Mouad Sehli](https://muad-portfolio.vercel.app), freelance front-end developer (React, TypeScript, Tailwind). More work and contact details are on the [portfolio](https://muad-portfolio.vercel.app).
