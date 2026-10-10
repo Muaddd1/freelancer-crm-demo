@@ -85,6 +85,7 @@ src/
 │   └── page.tsx           # Redirects to /dashboard
 ├── components/
 │   ├── sidebar.tsx
+│   ├── theme-script.tsx   # Applies saved theme before paint (no flash)
 │   └── ui/               # Reusable UI components
 └── lib/
     ├── data-context.tsx   # All data + CRUD operations
