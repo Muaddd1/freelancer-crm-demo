@@ -4,6 +4,8 @@
 
 **Live Demo:** [https://freelancer-crm-ivory.vercel.app](https://freelancer-crm-ivory.vercel.app)
 
+![Freelancer CRM](cover.png)
+
 ---
 
 ## What is this?
