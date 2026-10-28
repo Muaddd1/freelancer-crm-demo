@@ -145,7 +145,7 @@ export default function ProposalsPage() {
                   )}
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" className="h-7 w-7"><MoreHorizontal className="w-4 h-4" /></Button>
+                      <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="Proposal actions"><MoreHorizontal className="w-4 h-4" /></Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem asChild><Link href={`/proposals/${proposal.id}`} className="flex items-center gap-2"><Eye className="w-4 h-4" /> View</Link></DropdownMenuItem>
