@@ -148,6 +148,7 @@ export function Sidebar() {
               size="icon"
               className="h-8 w-8 flex-shrink-0"
               onClick={toggleDarkMode}
+              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
               {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </Button>
