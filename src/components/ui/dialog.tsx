@@ -48,7 +48,7 @@ export function Dialog({ open, onClose, title, description, children, className 
             <h2 className="text-lg font-semibold">{title}</h2>
             {description && <p className="text-sm text-muted-foreground mt-0.5">{description}</p>}
           </div>
-          <Button variant="ghost" size="icon" className="h-8 w-8" onClick={onClose}>
+          <Button variant="ghost" size="icon" className="h-8 w-8" onClick={onClose} aria-label="Close dialog">
             <X className="w-4 h-4" />
           </Button>
         </div>
