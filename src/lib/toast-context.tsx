@@ -98,7 +98,7 @@ function ToastContainer({ toasts, dismiss }: { toasts: Toast[]; dismiss: (id: st
                 <p className="text-xs text-muted-foreground mt-0.5">{t.description}</p>
               )}
             </div>
-            <button
+            <button aria-label="Dismiss notification"
               onClick={() => dismiss(t.id)}
               className="flex-shrink-0 p-1 hover:bg-muted rounded-md transition-colors"
             >

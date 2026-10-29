@@ -186,7 +186,7 @@ export function ActiveFilters({ filters, onRemove, className }: {
       {chips.map((chip) => (
         <Badge key={`${chip.key}-${chip.value}`} variant="secondary" className="gap-1 pr-1">
           {chip.label}
-          <button
+          <button aria-label={`Remove filter ${chip.label}`}
             onClick={() => onRemove(chip.key, chip.value)}
             className="ml-0.5 hover:bg-muted rounded-sm p-0.5"
           >

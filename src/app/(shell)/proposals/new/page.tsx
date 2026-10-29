@@ -136,7 +136,7 @@ function NewProposalPageInner() {
                 </div>
                 <div className="col-span-2 flex items-center gap-2">
                   <span className="text-sm font-medium flex-1">{formatCurrency(item.amount)}</span>
-                  {items.length > 1 && <button type="button" onClick={() => removeItem(item.id)} className="p-1 hover:text-destructive"><Trash2 className="w-4 h-4" /></button>}
+                  {items.length > 1 && <button aria-label="Remove line item" type="button" onClick={() => removeItem(item.id)} className="p-1 hover:text-destructive"><Trash2 className="w-4 h-4" /></button>}
                 </div>
               </div>
             ))}
