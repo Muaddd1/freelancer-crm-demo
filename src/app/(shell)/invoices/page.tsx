@@ -113,9 +113,9 @@ export default function InvoicesPage() {
       <div className="flex items-center gap-3">
         <div className="relative flex-1 max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-          <Input placeholder="Search invoices..." value={search} onChange={e => setSearch(e.target.value)} className="pl-9 h-9" />
+          <Input aria-label="Search invoices" placeholder="Search invoices..." value={search} onChange={e => setSearch(e.target.value)} className="pl-9 h-9" />
         </div>
-        <select className="h-9 rounded-lg border bg-background px-3 text-sm" value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
+        <select aria-label="Filter by status" className="h-9 rounded-lg border bg-background px-3 text-sm" value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
           <option value="all">All Status</option>
           <option value="DRAFT">Draft</option>
           <option value="SENT">Sent</option>
