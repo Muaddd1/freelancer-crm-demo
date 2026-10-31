@@ -65,16 +65,16 @@ export default function SettingsPage() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="text-sm font-medium block mb-1.5">Full Name</label>
-              <Input defaultValue="Muad A." />
+              <Input aria-label="Full name" defaultValue="Muad A." />
             </div>
             <div>
               <label className="text-sm font-medium block mb-1.5">Email</label>
-              <Input defaultValue="muad@example.com" type="email" />
+              <Input aria-label="Email" defaultValue="muad@example.com" type="email" />
             </div>
           </div>
           <div>
             <label className="text-sm font-medium block mb-1.5">Business Name</label>
-            <Input defaultValue="Freelance Studio" />
+            <Input aria-label="Business name" defaultValue="Freelance Studio" />
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ export default function SettingsPage() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="text-sm font-medium block mb-1.5">Currency</label>
-              <select className="w-full h-10 rounded-lg border bg-background px-3 text-sm">
+              <select aria-label="Currency" className="w-full h-10 rounded-lg border bg-background px-3 text-sm">
                 <option>USD ($)</option>
                 <option>EUR (€)</option>
                 <option>GBP (£)</option>
@@ -97,7 +97,7 @@ export default function SettingsPage() {
             </div>
             <div>
               <label className="text-sm font-medium block mb-1.5">Timezone</label>
-              <select className="w-full h-10 rounded-lg border bg-background px-3 text-sm">
+              <select aria-label="Timezone" className="w-full h-10 rounded-lg border bg-background px-3 text-sm">
                 <option>America/New_York (EST)</option>
                 <option>America/Los_Angeles (PST)</option>
                 <option>Europe/London (GMT)</option>
