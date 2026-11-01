@@ -66,26 +66,26 @@ function NewContractPageInner() {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label className="text-sm font-medium block mb-1.5">Contract Name *</label>
-          <Input placeholder="Development Agreement" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
+          <label htmlFor="f-contract-name" className="text-sm font-medium block mb-1.5">Contract Name *</label>
+          <Input id="f-contract-name" placeholder="Development Agreement" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
         </div>
 
         <div>
-          <label className="text-sm font-medium block mb-1.5">Client *</label>
-          <select className="w-full h-10 rounded-lg border bg-background px-3 text-sm" value={form.clientId} onChange={e => setForm({ ...form, clientId: e.target.value })} required>
+          <label htmlFor="f-client" className="text-sm font-medium block mb-1.5">Client *</label>
+          <select id="f-client" className="w-full h-10 rounded-lg border bg-background px-3 text-sm" value={form.clientId} onChange={e => setForm({ ...form, clientId: e.target.value })} required>
             <option value="">Select a client...</option>
             {data.clients.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
           </select>
         </div>
 
         <div>
-          <label className="text-sm font-medium block mb-1.5">Contract Value *</label>
-          <Input type="number" placeholder="10000" value={form.value} onChange={e => setForm({ ...form, value: e.target.value })} required />
+          <label htmlFor="f-contract-value" className="text-sm font-medium block mb-1.5">Contract Value *</label>
+          <Input id="f-contract-value" type="number" placeholder="10000" value={form.value} onChange={e => setForm({ ...form, value: e.target.value })} required />
         </div>
 
         <div>
-          <label className="text-sm font-medium block mb-1.5">Notes</label>
-          <textarea className="w-full h-24 rounded-lg border bg-background px-3 py-2 text-sm resize-none" placeholder="Contract terms, notes..." value={form.notes} onChange={e => setForm({ ...form, notes: e.target.value })} />
+          <label htmlFor="f-notes" className="text-sm font-medium block mb-1.5">Notes</label>
+          <textarea id="f-notes" className="w-full h-24 rounded-lg border bg-background px-3 py-2 text-sm resize-none" placeholder="Contract terms, notes..." value={form.notes} onChange={e => setForm({ ...form, notes: e.target.value })} />
         </div>
 
         <div className="flex justify-end gap-3">
