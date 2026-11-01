@@ -243,8 +243,8 @@ export default function InvoiceDetailPage() {
       >
         <div className="space-y-4 pt-2">
           <div>
-            <label className="text-sm font-medium block mb-1">Amount</label>
-            <Input
+            <label htmlFor="f-amount" className="text-sm font-medium block mb-1">Amount</label>
+            <Input id="f-amount"
               type="number"
               placeholder={balance.toString()}
               value={paymentAmount}
@@ -253,8 +253,8 @@ export default function InvoiceDetailPage() {
             />
           </div>
           <div>
-            <label className="text-sm font-medium block mb-1">Payment Method</label>
-            <select
+            <label htmlFor="f-payment-method" className="text-sm font-medium block mb-1">Payment Method</label>
+            <select id="f-payment-method"
               className="w-full h-10 rounded-lg border bg-background px-3 text-sm"
               value={paymentMethod}
               onChange={e => setPaymentMethod(e.target.value as 'BANK_TRANSFER' | 'CARD' | 'PAYPAL' | 'CASH')}

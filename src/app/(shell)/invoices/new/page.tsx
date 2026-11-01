@@ -107,8 +107,8 @@ function NewInvoicePageInner() {
       <form onSubmit={handleSubmit} className="space-y-8">
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <label className="text-sm font-medium block mb-1.5">Client *</label>
-            <select
+            <label htmlFor="f-client" className="text-sm font-medium block mb-1.5">Client *</label>
+            <select id="f-client"
               className="w-full h-10 rounded-lg border bg-background px-3 text-sm"
               value={form.clientId}
               onChange={e => setForm({ ...form, clientId: e.target.value })}
@@ -121,8 +121,8 @@ function NewInvoicePageInner() {
             </select>
           </div>
           <div>
-            <label className="text-sm font-medium block mb-1.5">Project (optional)</label>
-            <select
+            <label htmlFor="f-project-optional" className="text-sm font-medium block mb-1.5">Project (optional)</label>
+            <select id="f-project-optional"
               className="w-full h-10 rounded-lg border bg-background px-3 text-sm"
               value={form.projectId}
               onChange={e => setForm({ ...form, projectId: e.target.value })}
@@ -147,7 +147,7 @@ function NewInvoicePageInner() {
             {items.map(item => (
               <div key={item.id} className="grid grid-cols-12 gap-4 px-4 py-3 border-b last:border-0 items-center">
                 <div className="col-span-6">
-                  <Input
+                  <Input aria-label="Item description"
                     placeholder="Service description"
                     value={item.description}
                     onChange={e => updateItem(item.id, 'description', e.target.value)}
@@ -155,7 +155,7 @@ function NewInvoicePageInner() {
                   />
                 </div>
                 <div className="col-span-2">
-                  <Input
+                  <Input aria-label="Item quantity"
                     type="number"
                     min={1}
                     value={item.quantity}
@@ -164,7 +164,7 @@ function NewInvoicePageInner() {
                   />
                 </div>
                 <div className="col-span-2">
-                  <Input
+                  <Input aria-label="Item rate"
                     type="number"
                     min={0}
                     step={0.01}
@@ -190,8 +190,8 @@ function NewInvoicePageInner() {
         </div>
 
         <div>
-          <label className="text-sm font-medium block mb-1.5">Notes</label>
-          <textarea
+          <label htmlFor="f-notes" className="text-sm font-medium block mb-1.5">Notes</label>
+          <textarea id="f-notes"
             className="w-full h-20 rounded-lg border bg-background px-3 py-2 text-sm resize-none"
             placeholder="Payment terms, notes..."
             value={form.notes}
