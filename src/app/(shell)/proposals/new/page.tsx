@@ -97,21 +97,21 @@ function NewProposalPageInner() {
       <form onSubmit={handleSubmit} className="space-y-8">
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <label className="text-sm font-medium block mb-1.5">Client *</label>
-            <select className="w-full h-10 rounded-lg border bg-background px-3 text-sm" value={form.clientId} onChange={e => setForm({ ...form, clientId: e.target.value })} required>
+            <label htmlFor="f-client" className="text-sm font-medium block mb-1.5">Client *</label>
+            <select id="f-client" className="w-full h-10 rounded-lg border bg-background px-3 text-sm" value={form.clientId} onChange={e => setForm({ ...form, clientId: e.target.value })} required>
               <option value="">Select a client...</option>
               {data.clients.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
             </select>
           </div>
           <div>
-            <label className="text-sm font-medium block mb-1.5">Proposal Name *</label>
-            <Input placeholder="Website Redesign Proposal" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
+            <label htmlFor="f-proposal-name" className="text-sm font-medium block mb-1.5">Proposal Name *</label>
+            <Input id="f-proposal-name" placeholder="Website Redesign Proposal" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
           </div>
         </div>
 
         <div>
-          <label className="text-sm font-medium block mb-1.5">Validity (days)</label>
-          <Input type="number" placeholder="30" value={form.validityDays} onChange={e => setForm({ ...form, validityDays: e.target.value })} className="w-40" />
+          <label htmlFor="f-validity-days" className="text-sm font-medium block mb-1.5">Validity (days)</label>
+          <Input id="f-validity-days" type="number" placeholder="30" value={form.validityDays} onChange={e => setForm({ ...form, validityDays: e.target.value })} className="w-40" />
         </div>
 
         <div>
@@ -126,13 +126,13 @@ function NewProposalPageInner() {
             {items.map(item => (
               <div key={item.id} className="grid grid-cols-12 gap-4 px-4 py-3 border-b last:border-0 items-center">
                 <div className="col-span-6">
-                  <Input placeholder="Service description" value={item.description} onChange={e => updateItem(item.id, 'description', e.target.value)} className="h-9" />
+                  <Input aria-label="Item description" placeholder="Service description" value={item.description} onChange={e => updateItem(item.id, 'description', e.target.value)} className="h-9" />
                 </div>
                 <div className="col-span-2">
-                  <Input type="number" min={1} value={item.quantity} onChange={e => updateItem(item.id, 'quantity', parseInt(e.target.value) || 0)} className="h-9" />
+                  <Input aria-label="Item quantity" type="number" min={1} value={item.quantity} onChange={e => updateItem(item.id, 'quantity', parseInt(e.target.value) || 0)} className="h-9" />
                 </div>
                 <div className="col-span-2">
-                  <Input type="number" min={0} step={0.01} value={item.rate} onChange={e => updateItem(item.id, 'rate', parseFloat(e.target.value) || 0)} className="h-9" />
+                  <Input aria-label="Item rate" type="number" min={0} step={0.01} value={item.rate} onChange={e => updateItem(item.id, 'rate', parseFloat(e.target.value) || 0)} className="h-9" />
                 </div>
                 <div className="col-span-2 flex items-center gap-2">
                   <span className="text-sm font-medium flex-1">{formatCurrency(item.amount)}</span>

@@ -697,7 +697,7 @@ export default function ClientDetailPage() {
       {/* Message Dialog */}
       <Dialog open={showMessageDialog} onClose={() => setShowMessageDialog(false)} title="Add Message" description="Add a note to the client's conversation history.">
         <div className="space-y-4">
-          <textarea
+          <textarea aria-label="Message"
             className="w-full h-32 rounded-lg border bg-background p-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-ring"
             placeholder="Type your message..."
             value={messageText}
