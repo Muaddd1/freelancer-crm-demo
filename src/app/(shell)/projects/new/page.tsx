@@ -66,8 +66,8 @@ function NewProjectPageInner() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-4">
           <div>
-            <label className="text-sm font-medium block mb-1.5">Project Name *</label>
-            <Input
+            <label htmlFor="f-project-name" className="text-sm font-medium block mb-1.5">Project Name *</label>
+            <Input id="f-project-name"
               placeholder="Website Redesign"
               value={form.name}
               onChange={e => setForm({ ...form, name: e.target.value })}
@@ -76,8 +76,8 @@ function NewProjectPageInner() {
           </div>
 
           <div>
-            <label className="text-sm font-medium block mb-1.5">Client *</label>
-            <select
+            <label htmlFor="f-client" className="text-sm font-medium block mb-1.5">Client *</label>
+            <select id="f-client"
               className="w-full h-10 rounded-lg border bg-background px-3 text-sm"
               value={form.clientId}
               onChange={e => setForm({ ...form, clientId: e.target.value })}
@@ -91,8 +91,8 @@ function NewProjectPageInner() {
           </div>
 
           <div>
-            <label className="text-sm font-medium block mb-1.5">Description</label>
-            <textarea
+            <label htmlFor="f-description" className="text-sm font-medium block mb-1.5">Description</label>
+            <textarea id="f-description"
               className="w-full h-24 rounded-lg border bg-background px-3 py-2 text-sm resize-none"
               placeholder="Project details..."
               value={form.description}
@@ -102,8 +102,8 @@ function NewProjectPageInner() {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-sm font-medium block mb-1.5">Budget</label>
-              <Input
+              <label htmlFor="f-budget" className="text-sm font-medium block mb-1.5">Budget</label>
+              <Input id="f-budget"
                 type="number"
                 placeholder="5000"
                 value={form.budget}
@@ -111,8 +111,8 @@ function NewProjectPageInner() {
               />
             </div>
             <div>
-              <label className="text-sm font-medium block mb-1.5">Deadline</label>
-              <Input
+              <label htmlFor="f-deadline" className="text-sm font-medium block mb-1.5">Deadline</label>
+              <Input id="f-deadline"
                 type="date"
                 value={form.deadline}
                 onChange={e => setForm({ ...form, deadline: e.target.value })}
@@ -121,8 +121,8 @@ function NewProjectPageInner() {
           </div>
 
           <div>
-            <label className="text-sm font-medium block mb-1.5">Status</label>
-            <select
+            <label htmlFor="f-status" className="text-sm font-medium block mb-1.5">Status</label>
+            <select id="f-status"
               className="w-full h-10 rounded-lg border bg-background px-3 text-sm"
               value={form.status}
               onChange={e => setForm({ ...form, status: e.target.value as 'PLANNING' | 'ACTIVE' | 'ON_HOLD' })}

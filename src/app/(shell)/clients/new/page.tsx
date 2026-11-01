@@ -57,8 +57,8 @@ export default function NewClientPage() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="text-sm font-medium block mb-1.5">Full Name *</label>
-            <Input
+            <label htmlFor="f-full-name" className="text-sm font-medium block mb-1.5">Full Name *</label>
+            <Input id="f-full-name"
               placeholder="Sarah Mitchell"
               value={form.name}
               onChange={e => setForm({ ...form, name: e.target.value })}
@@ -66,8 +66,8 @@ export default function NewClientPage() {
             />
           </div>
           <div>
-            <label className="text-sm font-medium block mb-1.5">Email *</label>
-            <Input
+            <label htmlFor="f-email" className="text-sm font-medium block mb-1.5">Email *</label>
+            <Input id="f-email"
               type="email"
               placeholder="sarah@company.com"
               value={form.email}
@@ -79,16 +79,16 @@ export default function NewClientPage() {
 
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="text-sm font-medium block mb-1.5">Company</label>
-            <Input
+            <label htmlFor="f-company" className="text-sm font-medium block mb-1.5">Company</label>
+            <Input id="f-company"
               placeholder="Acme Studio"
               value={form.company}
               onChange={e => setForm({ ...form, company: e.target.value })}
             />
           </div>
           <div>
-            <label className="text-sm font-medium block mb-1.5">Phone</label>
-            <Input
+            <label htmlFor="f-phone" className="text-sm font-medium block mb-1.5">Phone</label>
+            <Input id="f-phone"
               type="tel"
               placeholder="+1 555-0123"
               value={form.phone}
@@ -98,8 +98,8 @@ export default function NewClientPage() {
         </div>
 
         <div>
-          <label className="text-sm font-medium block mb-1.5">Website</label>
-          <Input
+          <label htmlFor="f-website" className="text-sm font-medium block mb-1.5">Website</label>
+          <Input id="f-website"
             placeholder="acmestudio.com"
             value={form.website}
             onChange={e => setForm({ ...form, website: e.target.value })}
@@ -107,8 +107,8 @@ export default function NewClientPage() {
         </div>
 
         <div>
-          <label className="text-sm font-medium block mb-1.5">Status</label>
-          <select
+          <label htmlFor="f-status" className="text-sm font-medium block mb-1.5">Status</label>
+          <select id="f-status"
             className="w-full h-10 rounded-lg border bg-background px-3 text-sm"
             value={form.status}
             onChange={e => setForm({ ...form, status: e.target.value as 'ACTIVE' | 'INACTIVE' | 'LEAD' })}
@@ -120,8 +120,8 @@ export default function NewClientPage() {
         </div>
 
         <div>
-          <label className="text-sm font-medium block mb-1.5">Notes</label>
-          <textarea
+          <label htmlFor="f-notes" className="text-sm font-medium block mb-1.5">Notes</label>
+          <textarea id="f-notes"
             className="w-full h-24 rounded-lg border bg-background px-3 py-2 text-sm resize-none"
             placeholder="Additional notes about this client..."
             value={form.notes}
